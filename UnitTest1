@@ -1,0 +1,43 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
+namespace GirubaStoreApplicationUnitTests
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            try
+            {
+                MusicStoreApplication.Program.Main(new string[] { "Giruba", "Beulah" });
+            }
+            catch (Exception exception) {
+                Assert.IsFalse(true);
+            }
+
+            Assert.IsTrue(true);
+        }
+
+        public void VerifyModelType() {
+
+            try
+            {
+                var artist = new MusicStoreApplication.Models.Artist
+                {
+                    ArtistName = "Giruba"                    
+                };
+
+                Assert.IsTrue(artist is MusicStoreApplication.Models.Artist);
+                Assert.IsFalse(artist is MusicStoreApplication.Models.Bands);
+                Assert.IsFalse(artist is MusicStoreApplication.Models.Categories);
+                Assert.IsFalse(artist is MusicStoreApplication.Models.Song);
+            }
+            catch (Exception exception) {
+                Assert.IsFalse(true);
+            }
+        
+        }
+    }
+}
